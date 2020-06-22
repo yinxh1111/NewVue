@@ -28,45 +28,110 @@
     margin: 30px auto;
 }
 
-.data-container .data{
+.data-container .data {
     overflow: hidden;
     border-bottom: 1px dashed #ccc;
     padding: 30px 0;
 }
 
-.data-container .poster{
+.data-container .poster {
     width: 150px;
     height: 200px;
     float: left;
     margin-right: 20px;
 }
 
-.data-container .poster img{
+.data-container .poster img {
     width: 100%;
     height: 100%;
 }
 
-.data-container .words{
+.data-container .words {
     overflow: hidden;
     line-height: 1.5;
 }
 
-.data-container .words .title{
+.data-container .words .title {
     margin: 0;
     margin-bottom: 10px;
 }
 
-.data-container .words .attach{
+.data-container .words .attach {
     color: #888;
     font-size: 14px;
     line-height: 1.5;
     margin-bottom: 10px;
 }
 
-.data-container .words .attach span{
+.data-container .words .attach span {
     margin-right: 20px;
 }
 
-.data-container .words .desc{
+.data-container .words .desc {
     color: #666;
+}
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+}
+
+.center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.modal .loading {
+    color: #fff;
+    font-size: 2em;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav {
+    height: 64px;
+    line-height: 64px;
+    background: #333;
+    color: #ddd;
+    padding: 0 100px;
+}
+
+nav a {
+    height: 64px;
+    float: left;
+    padding: 0 20px;
+}
+
+nav a.router-link-exact-active {
+    background: #f40;
+}
+
+nav .left{
+    float: left;
+}
+
+nav .right{
+    float: right;
+}
+
+nav .right span{
+    margin: 0 20px;
+}
+
+input{
+    border: 1px solid #ccc;
 }

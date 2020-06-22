@@ -1,29 +1,28 @@
-import Movies from "./movies.js"
-import Pager from "./pager.js"
-import mockDatas from './assets/mockDatas.js'
 const template = `<div>
-<Movies :movies = "pageMovie"></Movies>
-<Pager :total= "total" v-model = "current" :pageSize="pageSize"></Pager> 
+<nav>
+<div class= "left">
+    <router-link to="/">首页</router-link>
+    <router-link to="/movie">电影页</router-link>
 </div>
-`
-//上面v-model 就是一个语法糖, 相当于 :value = "current"和@input = "current=$event"
+<div class="right" v-if="isLogin">
+    <span>{{isLogin.name}}</span>
+    <button @click="loginOut">退出登陆</button>
+</div>
+
+</nav>
+ <router-view></router-view>
+</div>`
 export default {
-    template,
-    components:{
-        Movies,
-        Pager,
-    },
-    data() {
-        return {
-            mockDatas:mockDatas,
-            current:1,
-            pageSize:2,
-            total:mockDatas.length
+    template, 
+    methods: {
+        loginOut(){
+            this.$store.dispatch("loginUser/loginOut")
+            this.$router.push("/login")
         }
     },
     computed: {
-        pageMovie(){
-            return this.mockDatas.slice((this.current-1)*this.pageSize,this.current*this.pageSize)
+        isLogin(){
+            return this.$store.state.loginUser.data
         }
     },
 }
